@@ -47,8 +47,15 @@ const cardData = [
     }
 ]
 
+async function drawCards(cardNumbers, fieldSide) {
+    for (let i = 0; i < cardNumbers; i++) {
+        const randomIdCard = await getRandomIdCard();
+    }
+}
+
 function init() {
-    
+    drawCards(5, "player");
+    drawCards(5, "computer");    
 }
 
 init();
