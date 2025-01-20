@@ -18,9 +18,9 @@ const state = {
     },
 };
 
-const playersSides = {
-    player1: "player-field-card",
-    player2: "computer-field-card"
+const playerSides = {
+    player1: "player-cards",
+    player2: "computer-cards"
 }
 
 const pathImages = "./src/assets/icons/";
@@ -57,15 +57,15 @@ async function getRandomCardId() {
     return cardData[randomIndex].id;
 }
 
-async function createCardImage(randomIdCard, fieldSide) {
+async function createCardImage(IdCard, fieldSide) {
     const cardImage = document.createElement('img');
     cardImage.setAttribute("Height", "100px");
-    cardImage.setAttribute("src", ".src/assets/icons/card-back.png");
+    cardImage.setAttribute("src", "./src/assets/icons/card-back.png");
     cardImage.setAttribute("data-id", IdCard);
     cardImage.classList.add("card");
 
 
-    if (fieldSide === playersSides.player1) {
+    if (fieldSide === playerSides.player1) {
         cardImage.addEventListener('click', () => {
             setCardsField(cardImage.getAttribute("data-id"));
         });
@@ -89,8 +89,8 @@ async function drawCards(cardNumbers, fieldSide) {
 }
 
 function init() {
-    drawCards(5, playersSides.player1);
-    drawCards(5, playersSides.player2);    
+    drawCards(5, playerSides.player1);
+    drawCards(5, playerSides.player2);    
 }
 
 init();
